@@ -1,7 +1,7 @@
 {
-  "firstName": "",
-  "lastName": "",
-  "passwordHash": "",
-  "formOfStudy": "",
-  "iHaveReadTheRulesOfTheCourse": false
+  "firstName": "Kristjan",
+  "lastName": "Pille",
+  "passwordHash": "0f2333e546319da421cdaae112d83d7eb2966924ada65d5f92f37a05bc15eb23",
+  "formOfStudy": "O",
+  "iHaveReadTheRulesOfTheCourse": true
 }

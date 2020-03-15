@@ -1,6 +1,7 @@
 <?php
-require_once("vendor/tpl.php");
-require_once("contactList.php");
+require 'vendor/tpl.php';
+require_once"contactList.php";
+require_once"contactItem.php";
 
 $cmd = "list_page";
 if (isset($_GET["cmd"])) {

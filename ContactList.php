@@ -12,7 +12,7 @@ function getContactItems () {
     $lines = file(DATA_FILE, FILE_IGNORE_NEW_LINES);
     $contactItems = [];
     foreach ($lines as $line){
-        list($firstName, $lastName, $phone) = explode("**", urldecode($line));
+        list($firstName, $lastName, $phone) = explode("**", $line);
         $contactItem = new contactItem($firstName, $lastName, $phone);
         $contactItems[] = $contactItem;
     }

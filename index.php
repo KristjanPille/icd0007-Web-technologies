@@ -23,7 +23,7 @@ if($cmd === "add"){
     $lastName = $_POST['lastName'];
     $phone = $_POST['phone'];
     $item = new contactItem($firstName, $lastName, $phone);
-    addContact(urlencode($item));
+    addContact($item);
 
     $contactItems = getContactItems();
     $data = ["contactItems" => $contactItems];

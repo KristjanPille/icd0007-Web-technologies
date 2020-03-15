@@ -3,12 +3,12 @@ require_once('contactItem.php');
 
 const DATA_FILE = "data.txt";
 
-function addContact($contactItem){
+function addContact ($contactItem) {
     $serializeditem = "$contactItem->firstName**$contactItem->lastName**$contactItem->phone";
-    file_put_contents(urlencode(DATA_FILE), $serializeditem . PHP_EOL, FILE_APPEND);
+    file_put_contents(DATA_FILE, $serializeditem . PHP_EOL, FILE_APPEND);
 }
 
-function getContactItems(){
+function getContactItems () {
     $lines = file(DATA_FILE, FILE_IGNORE_NEW_LINES);
     $contactItems = [];
     foreach ($lines as $line){

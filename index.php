@@ -9,14 +9,14 @@ if (isset($_GET["cmd"])) {
 
 if ($cmd === "list_page") {
     $contactItems = getContactItems();
-    $data = ['todoItems' => $contactItems];
+    $data = ['contactItems' => $contactItems];
     print renderTemplate("listpage.html", $data);
 }
 
 if ($cmd === "add_page") {
     print renderTemplate("addpage.html");
 }
-
+//test
 
 if($cmd === "add"){
     $firstName = $_POST['firstName'];

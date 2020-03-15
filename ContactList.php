@@ -9,11 +9,11 @@ function addContact ($contactItem) {
 }
 
 function getContactItems () {
-    $lines = file(DATA_FILE, FILE_IGNORE_NEW_LINES);
+    $lines = file(urldecode(DATA_FILE), FILE_IGNORE_NEW_LINES);
     $contactItems = [];
     foreach ($lines as $line){
         list($firstName, $lastName, $phone) = explode("**", $line);
-        $contactItem = new contactItem($firstName, $lastName, $phone);
+        $contactItem = new contactItem(urldecode($firstName), urldecode($lastName), urldecode($phone));
         $contactItems[] = $contactItem;
     }
     return $contactItems;

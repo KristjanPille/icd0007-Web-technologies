@@ -19,9 +19,9 @@ if ($cmd === "add_page") {
 }
 
 if($cmd === "add"){
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $phone = $_POST['phone'];
+    $firstName = urlencode($_POST['firstName']);
+    $lastName = urlencode($_POST['lastName']);
+    $phone = urlencode($_POST['phone']);
     $item = new contactItem($firstName, $lastName, $phone);
     addContact($item);
 

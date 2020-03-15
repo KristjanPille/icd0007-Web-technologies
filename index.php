@@ -1,5 +1,7 @@
 <?php
-
+require ('vendor/tpl.php');
+require_once ('contactItem.php');
+require_once ('contactList.php');
 
 $cmd = "list_page";
 if (isset($_GET["cmd"])) {
@@ -15,7 +17,6 @@ if ($cmd === "list_page") {
 if ($cmd === "add_page") {
     print renderTemplate("addpage.html");
 }
-//test
 
 if($cmd === "add"){
     $firstName = $_POST['firstName'];

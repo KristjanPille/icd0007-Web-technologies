@@ -1125,7 +1125,7 @@ namespace tplLib {
 
         public function removeLayer() {
             if (count($this->layers) == 1) {
-                throw new \Exception("can't remove last layera");
+                throw new \Exception("can't remove last layer");
             }
 
             array_pop($this->layers);

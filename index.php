@@ -10,34 +10,44 @@ if (isset($_GET["cmd"])) {
 }
 
 if ($cmd === "list_page") {
+
     $contacts = getContacts();
     $data = ['contacts' => $contacts];
     print renderTemplate("hw2kodu/listpage.html", $data);
 }
 
 if ($cmd === "add_page") {
-    print renderTemplate("hw2kodu/addpage.html");
+    include 'addpage.php';
 }
 
 
-if($cmd === "add"){
-    $name = $_POST['firstName'];
+if($cmd === "save"){
+    $firstname = $_POST['firstName'];
     $lastname = $_POST['lastName'];
     $phone1 = "";
     $phone2 = "";
     $phone3 = "";
 
-    if(strlen($name) >= 2){
+    if(strlen($firstname) >= 2){
         if(strlen($lastname) >= 2) {
-            $item = new Item($name, $lastname, $phone1, $phone2, $phone3);
+            $item = new Item($firstname, $lastname, $phone1, $phone2, $phone3);
             addContact($item);
 
             $contacts = getContacts();
             $data = ['contacts' => $contacts];
-            header("Location: ?cmd=list_page");
+            print renderTemplate("hw2kodu/listpage.html", $data);
         }
     }
     else{
-        header("Location: ?cmd=add_page");
+        $phone1 = $_POST['phone1'];
+        $phone2 = $_POST['phone2'];
+        $phone3 = $_POST['phone3'];
+        if(strlen($firstname) < 2){
+            $message = "Firstname must be atleast two letters long  ";
+        }
+        if(strlen($lastname) < 2){
+            $message1 = " Lastname must be atleast two letters long";
+        }
+        include 'addpage.php';
     }
 }

@@ -78,4 +78,8 @@ GROUP BY contacts.id;");
     }
     return $contactsList;
 }
+
+
+
+
 $db = null;

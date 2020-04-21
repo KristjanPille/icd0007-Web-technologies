@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="hw2kodu/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Osa 2</title>
 </head>
 

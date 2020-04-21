@@ -33,8 +33,8 @@ function addContact($item) {
         $insert = "INSERT INTO krpill.phones (contact_id, number) VALUES (:contact_id, :number);";
         $stmt = $connection->prepare($insert);
 
-        $stmt->bindParam('contact_id', $idValue);
-        $stmt->bindParam('number', $phone);
+        $stmt->bindValue('contact_id', $idValue);
+        $stmt->bindValue('number', $phone);
 
         $stmt->execute();
     }
@@ -137,6 +137,11 @@ function updateContact($contact) {
 
     $statement->execute();
 
+    $delete = $connection->prepare("DELETE FROM krpill.phones WHERE contact_id = :id");
+    $delete->bindValue("id",  $contact->id);
+
+    $delete->execute();
+
     $phones = array($_POST['phone1']);
 
     if (!empty($_POST['phone2'])) {
@@ -146,15 +151,12 @@ function updateContact($contact) {
     if (!empty($_POST['phone3'])) {
         array_push($phones, $_POST['phone3']);
     }
-
-    $delete = $connection->prepare("DELETE FROM krpill.phones WHERE contact_id = :id");
-    $delete->bindValue("id", $contact->id);
     foreach ($phones as $phone) {
+        echo $phone;
         $insert = "INSERT INTO krpill.phones (contact_id, number) VALUES (:contact_id, :number);";
         $stmt = $connection->prepare($insert);
-
-        $stmt->bindParam('contact_id', $contact->id);
-        $stmt->bindParam('number',$phone);
+        $stmt->bindValue('contact_id', $contact->id);
+        $stmt->bindValue('number', $phone);
 
         $stmt->execute();
     }

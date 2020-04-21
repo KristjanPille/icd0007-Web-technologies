@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="hw2_css.css">
+    <link rel="stylesheet" href="style.css">
     <title>Osa 2</title>
 </head>
 <body>
@@ -28,7 +28,10 @@
 
 
 <ul class="list-group" tpl-foreach="$contacts as $item">
-    <li class="list-group-item">{{$item->name}} &nbsp;&nbsp;&nbsp;&nbsp; {{$item->lastName}}  &nbsp;&nbsp;&nbsp;&nbsp; {{$item->phone1}} &nbsp;&nbsp;&nbsp;&nbsp; {{$item->phone2}} &nbsp;&nbsp;&nbsp;&nbsp; {{$item->phone3}}</li>
+    <td>
+    <a href="?cmd=edit_page&id={{$item->id}}">{{$item->name}}</a>
+    </td>
+    <td class="mb-1" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$item->lastName}} &nbsp;&nbsp;&nbsp;&nbsp; {{$item->phone1}} &nbsp;&nbsp;&nbsp;&nbsp;{{$item->phone2}} &nbsp;&nbsp;&nbsp;&nbsp; {{$item->phone3}}</td>
 </ul>
 
 <br><br>

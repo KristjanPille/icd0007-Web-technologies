@@ -36,7 +36,6 @@ if($cmd === "save"){
     $phone3 = "";
 
     if(isset($_POST['id']) and $_POST['id'] >= 1){
-        print($_POST['id']);
         $contact = getContactById($_POST['id']);
         updateContact($contact);
         $contacts = getContacts();

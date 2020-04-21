@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="hw2kodu/hw2_css.css">
+    <link rel="stylesheet" href="hw2kodu/style.css">
     <title>Osa 2</title>
 </head>
 
@@ -12,22 +12,21 @@
     <div id="menu"><a href="?cmd=list_page" id="list-page-link">Nimekiri</a>&nbsp;&nbsp;|&nbsp;
         <a href="?cmd=add_page" id="add-page-link">Lisa</a></div>
 </div>
-
-
-<div id="error-block" class="leftsidebox">
-    <?php
-    if (isset($message)) {
-        echo $message;
-    }
-    if (isset($message1)) {
-        echo $message1;
-    }
-    ?>
-</div>
 <form method="post" action="?cmd=save">
-
+    <div id="error-block" class="leftsidebox">
+        <?php
+        if (isset($message)) {
+            echo implode(" ",$message);
+        }
+        ?>
+    </div>
     <table class="form-table">
         <tbody>
+        <tr>
+            <td><input type="hidden" name="id" value="<?php
+                echo isset($_POST["id"]) ? $_POST["id"] : '';
+                ?>"></td>
+        </tr>
         <tr>
             <td>Eesnimi:</td>
             <td><input name="firstName" value="<?php

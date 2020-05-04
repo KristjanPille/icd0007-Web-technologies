@@ -8,16 +8,16 @@ if(isset($_GET["language"])) {
     if ($lang == "et") {
         $_COOKIE["language"] = $lang;
     }
+    setcookie('language', $_COOKIE['language']);
 }
 
-setcookie('language', $_COOKIE['language'], strtotime('+30 days'));
-
-if ( $_COOKIE["language"] == "en") {
-    include('lang/en.php');
-} else if($_COOKIE["language"] == "et"){
-    include('lang/et.php');
+if(isset($_COOKIE["language"])) {
+    if ($_COOKIE["language"] == "en") {
+        include('lang/en.php');
+    } else if ($_COOKIE["language"] == "et") {
+        include('lang/et.php');
+    }
 }
-
 if (isset($_GET["cmd"])) {
     $cmd = $_GET["cmd"];
 }

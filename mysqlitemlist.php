@@ -5,7 +5,6 @@ const DATA_FILE = "data.txt";
 const USERNAME = "krpill";
 const PASSWORD = "0f23";
 const URL = "mysql:host=db.mkalmo.xyz;dbname=krpill";
-const DB = "krpill";
 
 $link = new PDO(URL, USERNAME, PASSWORD);
 

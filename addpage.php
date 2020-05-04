@@ -68,7 +68,7 @@
     </table>
 
 </form>
-<a id="log-out-link" href="logout.php" class="btn btn-info" role="button"><?php echo $signout;?></a>
+<a href="logout.php" id="log-out-link"><?php echo $signout;?></a>
 
 </body>
 </html>

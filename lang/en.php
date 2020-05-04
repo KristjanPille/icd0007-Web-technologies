@@ -7,7 +7,7 @@
 
 //index
 $signout = "Sign Out of Your Account";
-$login = "Login";
+$login = "Logi sisse";
 $surname = "First name";
 $lastname = "Last name";
 $phones = "Phones";
@@ -18,4 +18,4 @@ $cedentials = "Please fill in your credentials to login.";
 $username = "Username";
 $password = "Password";
 $en = "English";
-$et = "Estonian";
+$et = "Eesti";

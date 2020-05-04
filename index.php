@@ -4,18 +4,39 @@ require 'vendor/tpl.php';
 require_once "mysqlitemlist.php";
 require_once "item.php";
 
-$cmd = "list_page";
+$loggedIn = FALSE;
+
+session_start();
+
+
+if($cmd = "lang-en"){
+    require('lang/en.php');
+}
+if($cmd = "lang-et"){
+    require('lang/et.php');
+}
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    $loggedIn = TRUE;
+}
+
+$cmd = "login_page";
 if (isset($_GET["cmd"])) {
     $cmd = $_GET["cmd"];
 }
 
-if ($cmd === "list_page") {
-    $contacts = getContacts();
-    $data = ['contacts' => $contacts];
-    print renderTemplate("hw2kodu/listpage.html", $data);
+if ($cmd === "login_page") {
+    include 'Login.php';
 }
 
-if ($cmd === "add_page") {
+if ($cmd === "list_page" && $loggedIn === true) {
+    $contacts = getContacts();
+    $data = ['contacts' => $contacts];
+    $_SESSION['data'] = $data;
+    include 'listpage.php';
+}
+
+if ($cmd === "add_page" && $loggedIn === true) {
     include 'addpage.php';
 }
 
@@ -28,19 +49,21 @@ function printClientError($errors) {
 }
 
 
-if($cmd === "save"){
+if($cmd === "save" && $loggedIn === true){
     $firstname = $_POST['firstName'];
     $lastname = $_POST['lastName'];
     $phone1 = "";
     $phone2 = "";
     $phone3 = "";
+    $data = "";
 
     if(isset($_POST['id']) and $_POST['id'] >= 1){
         $contact = getContactById($_POST['id']);
         updateContact($contact);
         $contacts = getContacts();
         $data = ['contacts' => $contacts];
-        print renderTemplate("hw2kodu/listpage.html", $data);
+        $_SESSION['data'] = $data;
+        include 'listpage.php';
     }
     else {
         $item = new Item($firstname, $lastname, $phone1, $phone2, $phone3);
@@ -50,6 +73,7 @@ if($cmd === "save"){
 
             $contacts = getContacts();
             $data = ['contacts' => $contacts];
+            $_SESSION['data'] = $data;
             header( "Location: /?cmd=list_page" );
         } else {
             $message = $errors;
@@ -57,14 +81,14 @@ if($cmd === "save"){
             $phone1 = $_POST['phone1'];
             $phone2 = $_POST['phone2'];
             $phone3 = $_POST['phone3'];
-
+            $_SESSION['data'] = $data;
             include 'addpage.php';
         }
     }
 
 }
 
-if($cmd === "edit_page"){
+if($cmd === "edit_page" && $loggedIn === true){
     $id = $_GET['id'];
 
     $contact = getContactById($id);

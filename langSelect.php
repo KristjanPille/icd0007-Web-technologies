@@ -9,7 +9,9 @@ if(isset($_GET["language"])) {
         $_COOKIE["language"] = $lang;
     }
 }
+
 setcookie('language', $_COOKIE['language'], strtotime('+30 days'));
+
 if ( $_COOKIE["language"] == "en") {
     include('lang/en.php');
 } else if($_COOKIE["language"] == "et"){

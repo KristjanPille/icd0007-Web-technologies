@@ -26,7 +26,7 @@ if (isset($_GET["cmd"])) {
 }
 
 if ($cmd === "login_page") {
-    include 'Login.php';
+    include 'login.php';
 }
 
 if ($cmd === "list_page" && $loggedIn === true) {

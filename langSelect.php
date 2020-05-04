@@ -19,7 +19,7 @@ if(isset($_COOKIE["language"])) {
     }
 }
 if(!isset($_COOKIE["language"])){
-    include('lang/en.php');
+    include('lang/et.php');
 }
 
 if (isset($_GET["language"])) {

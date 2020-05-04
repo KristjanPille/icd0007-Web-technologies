@@ -39,7 +39,7 @@
     </table>
 
     <br><br>
-    <a href="logout.php" id="log-out-link"><?php echo $signout;?></a>
+    <a href="?cmd=log_out" id="log-out-link"><?php echo $signout;?></a>
 </div>
 </body>
 </html>

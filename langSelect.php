@@ -10,6 +10,9 @@ if(isset($_GET["language"])) {
     }
     setcookie('language', $_COOKIE['language']);
 }
+if(!isset($_COOKIE['language'])){
+    setcookie('language', "et");
+}
 
 if(isset($_COOKIE["language"])) {
     if ($_COOKIE["language"] == "en") {

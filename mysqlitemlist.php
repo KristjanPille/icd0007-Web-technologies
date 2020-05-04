@@ -5,6 +5,9 @@ const DATA_FILE = "data.txt";
 const USERNAME = "krpill";
 const PASSWORD = "0f23";
 const URL = "mysql:host=db.mkalmo.xyz;dbname=krpill";
+const DB = "krpill";
+
+$link = mysqli_connect("db.mkalmo.xyz", USERNAME, PASSWORD, DB);
 
 function addContact($item) {
     $connection = new PDO(URL, USERNAME, PASSWORD);

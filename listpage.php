@@ -28,7 +28,7 @@
         foreach($data as $array)
         foreach($array as $objects) :?>
         <tr>
-            <td> <?php echo $objects->name;; ?></td>
+            <td><a href="?cmd=edit_page&id=<?php echo $objects->id?>"><?php echo $objects->name; ?></a></td>
             <td> <?php echo $objects->lastName;; ?></td>
             <td> <?php echo $objects->phone1;; ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $objects->phone2;; ?> &nbsp;&nbsp;&nbsp;&nbsp;
                 <?php echo $objects->phone3;; ?>

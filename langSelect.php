@@ -11,7 +11,7 @@ if(isset($_GET["language"])) {
     setcookie('language', $_COOKIE['language']);
 }
 if(!isset($_COOKIE['language'])){
-    setcookie('language', "et");
+    setcookie('language', "en");
 }
 
 if(isset($_COOKIE["language"])) {

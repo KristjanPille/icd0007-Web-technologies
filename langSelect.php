@@ -18,6 +18,13 @@ if(isset($_COOKIE["language"])) {
         include('lang/et.php');
     }
 }
+if(!isset($_COOKIE["language"])){
+    include('lang/en.php');
+}
+
+if (isset($_GET["language"])) {
+    $cmd = $_GET["language"];
+}
 if (isset($_GET["cmd"])) {
     $cmd = $_GET["cmd"];
 }

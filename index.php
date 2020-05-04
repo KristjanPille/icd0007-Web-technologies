@@ -29,6 +29,13 @@ if ($cmd === "login_page") {
     include 'login.php';
 }
 
+if ($cmd === "log_out") {
+    header( "Location: /?cmd=login_page" );
+    $_SESSION = array();
+    session_destroy();
+    exit;
+}
+
 if ($cmd === "list_page" && $loggedIn === true) {
     $contacts = getContacts();
     $data = ['contacts' => $contacts];

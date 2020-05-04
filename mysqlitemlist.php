@@ -7,7 +7,7 @@ const PASSWORD = "0f23";
 const URL = "mysql:host=db.mkalmo.xyz;dbname=krpill";
 const DB = "krpill";
 
-$link = mysqli_connect("db.mkalmo.xyz", USERNAME, PASSWORD, DB);
+$link = new PDO(URL, USERNAME, PASSWORD);
 
 function addContact($item) {
     $connection = new PDO(URL, USERNAME, PASSWORD);

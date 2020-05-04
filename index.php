@@ -9,13 +9,6 @@ $loggedIn = FALSE;
 session_start();
 
 
-if($cmd = "lang-en"){
-    require('lang/en.php');
-}
-if($cmd = "lang-et"){
-    require('lang/et.php');
-}
-
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $loggedIn = TRUE;
 }
@@ -25,6 +18,7 @@ if (isset($_GET["cmd"])) {
     $cmd = $_GET["cmd"];
 }
 
+
 if ($cmd === "login_page") {
     include 'login.php';
 }
@@ -32,13 +26,6 @@ if ($cmd === "login_page") {
 if ($cmd === "log_out") {
     header( "Location: /?cmd=login_page" );
     $_SESSION = array();
-    if (ini_get("session.use_cookies")) {
-        $params = session_get_cookie_params();
-        setcookie(session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
-        );
-    }
     session_destroy();
     exit;
 }

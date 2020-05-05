@@ -8,7 +8,7 @@ if(isset($_GET["language"])) {
     if ($lang == "et") {
         $_COOKIE["language"] = $lang;
     }
-    setcookie('language', $_COOKIE['language']);
+    setcookie('language', $_COOKIE['language'], time()+86400);
 }
 
 if(isset($_COOKIE["language"])) {

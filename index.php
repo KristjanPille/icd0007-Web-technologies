@@ -18,7 +18,6 @@ if (isset($_GET["cmd"])) {
     $cmd = $_GET["cmd"];
 }
 
-
 if ($cmd === "login_page") {
     include 'login.php';
 }

@@ -35,7 +35,7 @@ if ($cmd === "list_page" && $loggedIn === true) {
     $language = language();
     $contacts = getContacts();
     $data = ['contacts' => $contacts, 'language' => $language];
-    print renderTemplate("hw2kodu/listpage.html", $data);
+    print renderTemplate("tpl/listpage.html", $data);
 }
 
 if ($cmd === "add_page" && $loggedIn === true) {

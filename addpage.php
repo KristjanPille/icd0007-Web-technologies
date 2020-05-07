@@ -7,6 +7,10 @@
 </head>
 <body>
 <?php include 'langSelect.php' ?>
+<ul>
+    <a id="lang-et-link" href="?cmd=<?= $cmd ?>&language=et" class="btn btn-info" role="button"><?php echo $et;?></a>
+    <a id="lang-en-link" href="?cmd=<?= $cmd ?>&language=en" class="btn btn-info" role="button"><?php echo $en;?></a>
+</ul>
 <div>
     <div id="menu">
         <a id="list-page-link" href="?cmd=list_page" class="btn btn-info" role="button"><?php echo $list;?></a>

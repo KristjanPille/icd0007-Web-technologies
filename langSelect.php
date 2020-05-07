@@ -32,15 +32,3 @@ if (isset($_GET["cmd"])) {
 else {
     $cmd = "login_page";
 }
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<body>
-<div id="wrapper">
-    <ul>
-        <a id="lang-et-link" href="?cmd=<?= $cmd ?>&language=et" class="btn btn-info" role="button"><?php echo $et;?></a>
-        <a id="lang-en-link" href="?cmd=<?= $cmd ?>&language=en" class="btn btn-info" role="button"><?php echo $en;?></a>
-    </ul>
-</div>
-</body>
-</html>

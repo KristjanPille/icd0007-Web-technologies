@@ -102,6 +102,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
 <div class="wrapper">
     <?php include 'langSelect.php' ?>
+    <ul>
+        <a id="lang-et-link" href="?cmd=<?= $cmd ?>&language=et" class="btn btn-info" role="button"><?php echo $et;?></a>
+        <a id="lang-en-link" href="?cmd=<?= $cmd ?>&language=en" class="btn btn-info" role="button"><?php echo $en;?></a>
+    </ul>
     <p><?php echo $cedentials;?></p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div id="error-block" class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">

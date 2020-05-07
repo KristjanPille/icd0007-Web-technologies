@@ -967,6 +967,7 @@ namespace tplLib {
 
         public function tagStartAction($tagName, $attributes) {
 
+
             if (isset($attributes['tpl-if'])) {
                 $node = new IfNode($tagName, $attributes);
             } else if (isset($attributes['tpl-foreach'])) {

@@ -6,7 +6,9 @@ require_once "item.php";
 
 $loggedIn = FALSE;
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -30,10 +32,10 @@ if ($cmd === "log_out") {
 }
 
 if ($cmd === "list_page" && $loggedIn === true) {
+    $language = language();
     $contacts = getContacts();
-    $data = ['contacts' => $contacts];
-    $_SESSION['data'] = $data;
-    include 'listpage.php';
+    $data = ['contacts' => $contacts, 'language' => $language];
+    print renderTemplate("hw2kodu/listpage.html", $data);
 }
 
 if ($cmd === "add_page" && $loggedIn === true) {

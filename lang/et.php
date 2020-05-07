@@ -1,11 +1,19 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 //english lang
+$_SESSION['signout'] = "Logi välja";
+$_SESSION['login'] = "Logi sisse";
 
-//nav
-
-
-//index
+$_SESSION['surname'] = "Eesnimi";
+$_SESSION['lastname'] = "Perekonna nimi";
+$_SESSION['phones'] = "Telefonid";
+$_SESSION['list'] = "Kontaktid";
+$_SESSION['surname'] = "Eesnimi";
+$_SESSION['add'] = "Lisa kontakt";
+$_SESSION['estonia'] = "Eesti";
+$_SESSION['english'] = "Inglise";
 $signout = "Logi välja";
 $login = "Logi sisse";
 $surname = "Eesnimi";

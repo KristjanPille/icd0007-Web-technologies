@@ -31,7 +31,7 @@ class item
         }
 
         if (!isset($this->lastName)) {
-            $errors[] = "lastname needede";
+            $errors[] = "lastname needed";
         }
         if (strlen($this->name) < 2) {
             $errors[] = "first name length is less than 2";

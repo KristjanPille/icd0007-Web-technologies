@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once("item.php");
+require_once("languageitem.php");
 const DATA_FILE = "data.txt";
 
 const USERNAME = "krpill";
@@ -40,6 +42,20 @@ function addContact($item) {
 
         $stmt->execute();
     }
+}
+
+function language(){
+    include 'langSelect.php';
+    $signout = $_SESSION['signout'];
+    $surname = $_SESSION['surname'];
+    $lastname = $_SESSION['lastname'];
+    $phones = $_SESSION['phones'];
+    $list = $_SESSION['list'];
+    $add = $_SESSION['add'];
+    $estonia = $_SESSION['estonia'];
+    $english = $_SESSION['english'];
+    $language = new languageitem($surname, $lastname, $phones, $list, $add, $signout, $estonia, $english);
+    return $language;
 }
 
 function getContacts() {

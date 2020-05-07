@@ -12,6 +12,7 @@ $_SESSION['add'] = "Add contact";
 $_SESSION['estonia'] = "Estonian";
 $_SESSION['english'] = "English";
 $_SESSION['signout'] = "Logout";
+$_SESSION['save'] = "save";
 $signout = "Sign Out of Your Account";
 $login = "Login";
 $surname = "First name";

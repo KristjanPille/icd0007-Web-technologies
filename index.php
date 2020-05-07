@@ -5,6 +5,7 @@ require_once "mysqlitemlist.php";
 require_once "item.php";
 
 $loggedIn = FALSE;
+$language = language();
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -32,14 +33,15 @@ if ($cmd === "log_out") {
 }
 
 if ($cmd === "list_page" && $loggedIn === true) {
-    $language = language();
     $contacts = getContacts();
     $data = ['contacts' => $contacts, 'language' => $language];
     print renderTemplate("tpl/listpage.html", $data);
 }
 
 if ($cmd === "add_page" && $loggedIn === true) {
-    include 'addpage.php';
+    $contacts = getContacts();
+    $data = ['contacts' => $contacts, 'language' => $language];
+    print renderTemplate("tpl/addpage.html", $data);
 }
 
 function printClientError($errors) {
@@ -52,23 +54,23 @@ function printClientError($errors) {
 
 
 if($cmd === "save" && $loggedIn === true){
-    $firstname = $_POST['firstName'];
+    $name = $_POST['firstName'];
     $lastname = $_POST['lastName'];
     $phone1 = "";
     $phone2 = "";
     $phone3 = "";
-    $data = "";
+    $data = $data = ['language' => $language];
 
     if(isset($_POST['id']) and $_POST['id'] >= 1){
         $contact = getContactById($_POST['id']);
         updateContact($contact);
         $contacts = getContacts();
-        $data = ['contacts' => $contacts];
+        $data = ['contacts' => $contacts, 'language' => $language];
         $_SESSION['data'] = $data;
-        include 'listpage.php';
+        print renderTemplate("tpl/listpage.html", $data);
     }
     else {
-        $item = new Item($firstname, $lastname, $phone1, $phone2, $phone3);
+        $item = new Item($name, $lastname, $phone1, $phone2, $phone3);
         $errors = $item->validate();
         if (empty($errors)) {
             addContact($item);
@@ -79,12 +81,13 @@ if($cmd === "save" && $loggedIn === true){
             header( "Location: /?cmd=list_page" );
         } else {
             $message = $errors;
-
             $phone1 = $_POST['phone1'];
             $phone2 = $_POST['phone2'];
             $phone3 = $_POST['phone3'];
             $_SESSION['data'] = $data;
-            include 'addpage.php';
+            $contact = new Item($name, $lastname, $phone1, $phone2, $phone3);
+            $data = ['contact' => $contact, 'language' => $language, 'message' => $message];
+            print renderTemplate("tpl/addpage.html", $data);
         }
     }
 
@@ -92,20 +95,7 @@ if($cmd === "save" && $loggedIn === true){
 
 if($cmd === "edit_page" && $loggedIn === true){
     $id = $_GET['id'];
-
     $contact = getContactById($id);
-    $_POST['firstName'] = $contact->name;
-    $_POST['lastName'] = $contact->lastName;
-    $_POST['phone1'] = $contact->phone1;
-    $_POST['phone2'] = $contact->phone2;
-    $_POST['phone3'] = $contact->phone3;
-    $_POST['id'] = $contact->id;
-    $firstname = $_POST['firstName'];
-    $lastname = $_POST['lastName'];
-    $phone1 = $_POST['phone1'];
-    $phone2 = $_POST['phone2'];
-    $phone3 = $_POST['phone3'];
-    $id = $_POST['id'];
-
-    include 'addpage.php';
+    $data = ['contact' => $contact, 'language' => $language];
+    print renderTemplate("tpl/addpage.html", $data);
 }

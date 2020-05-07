@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+
+<nav><div>
+    <a href="?cmd=list_page" id="list-page-link">{{$language->list}}</a>&nbsp;&nbsp;|&nbsp;
+    <a href="?cmd=add_page" id="add-page-link">{{$language->add}}</a>&nbsp;&nbsp;|&nbsp;
+</div>
+</nav>
+
+<main>
+
+
+    <form method="post" action="?cmd=save">
+        <input type="hidden" name="id" value="{{$contact->id}}"/>
+
+        <table class="form-table">
+            <tbody>
+            <tr>
+                <td id="error-block" class="leftsidebox">
+                    {{$message}}
+                </td>
+            </tr>
+            <tr>
+                <td>{{$language->surname}}:</td>
+                <td><input name="firstName" value="{{$contact->name}}"/></td>
+            </tr>
+            <tr>
+                <td>{{$language->lastname}}:</td>
+                <td><input name="lastName" value="{{$contact->lastName}}"/></td>
+            </tr>
+            <tr>
+                <td>{{$language->phones}}:</td>
+                <td><input name="phone1" value="{{$contact->phone1}}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input name="phone2" value="{{$contact->phone2}}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input name="phone3" value="{{$contact->phone3}}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><br/>
+                    <input name="submitButton" type="submit" value="{{$language->save}}"/>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </form>
+</main>
+
+<footer>
+    <div id="lang-links">
+        <a id="lang-et-link" href="?cmd=add_page&language=et" class="btn btn-info" role="button">{{$language->estonia}}</a>&nbsp;&nbsp;|&nbsp;
+        <a id="lang-en-link" href="?cmd=add_page&language=en" class="btn btn-info" role="button">{{$language->english}}</a>
+    </div>
+</footer>
+
+</body>
+</html>

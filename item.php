@@ -27,19 +27,18 @@ class item
         $errors = [];
 
         if (!isset($this->name)) {
-            $errors[] = "Name is needed";
+            $errors[] = "Name is needed ";
         }
 
         if (!isset($this->lastName)) {
-            $errors[] = "lastname needed";
+            $errors[] = "lastname needed ";
         }
         if (strlen($this->name) < 2) {
-            $errors[] = "first name length is less than 2";
+            $errors[] = "first name length is less than 2 ";
         }
         if (strlen($this->lastName) < 2) {
-            $errors[] = "Last name length is less than 2";
+            $errors[] = "Last name length is less than 2 ";
         }
-
-        return $errors;
+        return implode(',', $errors);
     }
 }

@@ -13,6 +13,7 @@ $_SESSION['list'] = "Kontaktid";
 $_SESSION['surname'] = "Eesnimi";
 $_SESSION['add'] = "Lisa kontakt";
 $_SESSION['estonia'] = "Eesti";
+$_SESSION['save'] = "salvesta";
 $_SESSION['english'] = "Inglise";
 $signout = "Logi välja";
 $login = "Logi sisse";

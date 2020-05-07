@@ -54,7 +54,8 @@ function language(){
     $add = $_SESSION['add'];
     $estonia = $_SESSION['estonia'];
     $english = $_SESSION['english'];
-    $language = new languageitem($surname, $lastname, $phones, $list, $add, $signout, $estonia, $english);
+    $save = $_SESSION['save'];
+    $language = new languageitem($surname, $lastname, $phones, $list, $add, $signout, $estonia, $english, $save);
     return $language;
 }
 
@@ -170,7 +171,6 @@ function updateContact($contact) {
         array_push($phones, $_POST['phone3']);
     }
     foreach ($phones as $phone) {
-        echo $phone;
         $insert = "INSERT INTO krpill.phones (contact_id, number) VALUES (:contact_id, :number);";
         $stmt = $connection->prepare($insert);
         $stmt->bindValue('contact_id', $contact->id);

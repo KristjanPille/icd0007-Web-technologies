@@ -14,12 +14,13 @@ function statementToPersonList($stmt) {
         // kood tuleb siia
 
         $person = new Person($id, $name);
-        if(isset($personList[$name])){
+        if(isset($personList[$person->id])){
             $person->addPhone($number);
+            array_push($personList, $person);
         }
-        else if (!isset($personList[$name])){
-            $personList[] = $person;
+        else if (!isset($personList[$person->id])){
             $person->addPhone($number);
+            array_push($personList, $person);
         }
     }
 

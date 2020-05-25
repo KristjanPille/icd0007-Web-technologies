@@ -7,11 +7,7 @@ $translations = ['red' => 'Punane', 'blue' => 'Sinine'];
 // mallide teegi kasutamise näide
 $data['fileName'] = 'content.html';
 $data['color'] = 'Kollane';
-$cmd = "main";
 
-if($cmd === "test"){
-    print "k";
-}
 if(isset($_POST['color'])){
     header('Location: ?color=' .urlencode($_POST['color']));
 }

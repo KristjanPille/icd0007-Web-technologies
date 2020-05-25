@@ -19,21 +19,21 @@ Teooriaküsimused
   1. Kui brauser näitab soovitud tulemust ka standardile mittevastava Html
      koodi korral, siis miks peaks standardit jälgima?
 
-     Mõned browserid ei lisa automaatselt puudu olevad HTML'i tääge.
+     Lihtsam hooldada, paremini arusaadav, töötavad vanemate veebilehitsejatega.
 
   2. Http protokolli kohaselt vastab server päisega
      Content-type: . Miks see vajalik on?
 
-     ... vastus tuleb siia ...
+    See on vajalik selleks, et ei saaks röövida andmeid.
 
   3. Http GET päring ei sobi kustutamise käsu andmiseks. Miks?
 
-     ... vastus tuleb siia ...
+     GET ei sobi muutvatele operatsioonidele.
 
   4. Mis on pahasti alloleva koodiga? Kuidas see avalduda võiks?
      $sql = 'DELETE FROM contacts WHERE id = ' . $_POST['id'];
 
-     ... vastus tuleb siia ...
+     $_POST'iga on avatud rünnakutele. On võimalik sql injectionit kasutada selle peal.
 
 Ülesanne 1 (6 punkti)
 
